@@ -34,7 +34,7 @@ OPENROUTER_API_KEY = os.environ.get("OPENROUTER_API_KEY", "")
 # Modelo gratuito usado por padrão. A lista de modelos ":free" da OpenRouter muda com
 # frequência — confira a disponibilidade atual em https://openrouter.ai/models antes
 # de ir para produção, e ajuste via variável de ambiente se necessário.
-OPENROUTER_MODEL = os.environ.get("OPENROUTER_MODEL", "meta-llama/llama-3.3-70b-instruct:free")
+OPENROUTER_MODEL = os.environ.get("OPENROUTER_MODEL", "openrouter/free")
 
 OPENROUTER_BASE_URL = "https://openrouter.ai/api/v1"
 
