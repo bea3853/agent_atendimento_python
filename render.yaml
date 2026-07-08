@@ -1,0 +1,20 @@
+# Blueprint do Render — permite fazer deploy com "New +" > "Blueprint" apontando
+# para o repositório no GitHub, em vez de configurar tudo manualmente na UI.
+# A variável OPENROUTER_API_KEY é marcada como "sync: false" de propósito:
+# isso obriga a preenchê-la manualmente no painel do Render, nunca commitada aqui.
+services:
+  - type: web
+    name: agente-chatbot
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: streamlit run app.py --server.port $PORT --server.address 0.0.0.0
+    envVars:
+      - key: OPENROUTER_API_KEY
+        sync: false
+      - key: OPENROUTER_MODEL
+        value: meta-llama/llama-3.3-70b-instruct:free
+      - key: APP_TITLE
+        value: Agente Chatbot
+      - key: APP_URL
+        value: https://github.com/
